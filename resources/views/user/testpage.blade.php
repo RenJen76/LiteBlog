@@ -1,0 +1,2 @@
+
+{{ session('test_data') }}

@@ -1,0 +1,32 @@
+a { 
+    text-decoration: none;
+}
+.image-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+.article-section{
+    margin-top: 30px;
+    border: 1px solid #ffffff00;
+    background-color: rgba(238,238,238,.35);
+    border-radius: 10px;
+    /* height: 150px; */
+    padding: 10px;
+}
+.article-section:hover {
+    /* cursor: pointer; */
+    border: 1px solid #a9a9a938;
+    /*box-shadow: 0px 0px 2px rgb(0 0 0 / 70%));*/
+}
+.article-title{
+    color: black;
+}
+.article-content{
+    color: black;
+    /* height: 35px */
+}
+.less-hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
