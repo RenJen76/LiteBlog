@@ -2,13 +2,13 @@
 <html>
 <head>
     
-    <title>@yield('Title')</title>
+    <title>LiteBlog - @yield('Title')</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="Shortcut Icon" type="image/x-icon" href="{{ URL::asset('favicon.ico') }}">
-    <script src="{{ URL::asset('js/jquery/jquery-2.2.4.js') }}" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="{{ URL::asset('js/jquery/jquery-2.2.4.js') }}"></script>
 
     <!-- Latest compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
