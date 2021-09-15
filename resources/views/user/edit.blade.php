@@ -1,13 +1,13 @@
 @extends('master.master')
 
 
-@section('Title', $Title)
+@section('Title', '修改個人資訊')
 
 
 @section('Content')
 
 <script type="text/javascript">
-    let editSuccess = '{{ $EditSuccess ?: "" }}';
+    let editSuccess = "{{ old('editSuccess') ?: '' }}";
     if(editSuccess==='success'){
         $.iaoAlert({
             msg: "修改成功！",
@@ -43,7 +43,7 @@
             </label>
             <div class="d-flex justify-content-center">
             @if($UserData->user_picture=="")
-                <img id="imagePreview" class="image-circle" src="/images/icon/NoImage.jpg">
+                <img id="imagePreview" class="image-circle" src="/images/icon/default.png">
             @else
                 <img id="imagePreview" class="image-circle" src="{{ $UserData->user_picture }}">
             @endif

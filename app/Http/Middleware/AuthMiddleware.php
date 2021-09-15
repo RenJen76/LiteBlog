@@ -3,7 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-// use Illuminate\Auth\AuthenticationException;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\AuthenticationException;
 
 class AuthMiddleware
 {
@@ -16,16 +17,11 @@ class AuthMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $IsLogin    = false;
-        $UserID     = session()->get('UserID');
-        
-        if(!is_null($UserID)){
-            $IsLogin= true;
-        }
-
-        if($IsLogin === false){
+        if(!Auth::check()){
+            if ($request->expectsJson()) {
+                throw new AuthenticationException('Unauthenticated.');
+            }
             return redirect('/auth/login');
-            // throw new AuthenticationException('Unauthenticated.');
         }
 
         return $next($request);

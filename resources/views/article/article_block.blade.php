@@ -79,9 +79,6 @@
     @endforeach
 
     <script>
-
-        let accountVerify = '{{ Auth::User() }}';
-
         $("input[name^='CommentBtn_']").click(function(){
             let commitArticleID = $(this).attr('name').replace('CommentBtn_', '');
             let commentContent  = $("input[name='commentText_" + commitArticleID + "']").val().trim();

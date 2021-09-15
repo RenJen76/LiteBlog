@@ -1,4 +1,4 @@
 @extends('master.master')
 
 
-@section('Title', $Title)
+@section('Title', '個人頁面')

@@ -1,7 +1,7 @@
 @extends('master.master')
 
 
-@section('Title', $Title)
+@section('Title', '個人資訊')
 
 
 @section('Content')

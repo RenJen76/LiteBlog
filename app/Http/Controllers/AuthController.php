@@ -74,7 +74,7 @@ class AuthController extends Controller
         }
 
         Auth::login($account);
-        session()->put('UserID', $account->id);
+        // session()->put('UserID', $account->id);
         return redirect()->intended('/user/index');
     }
 
@@ -87,73 +87,12 @@ class AuthController extends Controller
             'email'     => $request['email']
         ]);
         event(new UserEvents($user));
-
-        Log::notice(print_r(DB::getQueryLog(), true));
-
-        return redirect('/auth/login');
+        return redirect()->route('login');
     }
 
     public function signOutProcess()
     {
-        session()->forget('UserID');
-        return redirect('/auth/login');
-    }
-
-    public function updateData()
-    {
-        /**
-         * add record
-         */
-        // $Flights = Flight::where('sernum', 1)->limit(1);
-        // $Flights->account = 'New Account Name';
-        // $Flights->Save();
-        
-        /**
-         * add record
-         */
-        // $Flights = Flight::create(['account' => 'abc']);
-        
-        /**
-         * soft deleted
-         */
-        // $flight = Flight::find(1);
-        // $flight->delete();
-        
-        /**
-         * query record
-         */
-        // $Flight = Flight::find(2);
-        // var_dump($Flight);
-        // var_dump($Flight->trashed());
-        // dd($Flight);
-        try {       
-            $flight = Flight::where([
-                'id' => '10'
-            ])->first();
-            var_dump($flight['account']);
-            exit;
-            foreach ($flight as $key => $value) {
-               $flight->account;
-            }
-            exit;
-        } catch (Exception $e) {
-            dd($e->getMessage());
-        }
-        /*
-        foreach ($Flight as $key => $value) {
-            echo "$value <hr>"; 
-        }
-        */
-        
-       
-        return response([
-            'key' => 'asw1254vvxs6d4ad6a5das46ads'
-        ]);
-       
-        $Flights = Flight::where('id', 1);
-        // dd($Flight->trashed());
-
-        $Flights->Save();
-        dd($Flights);
+        Auth::logout();
+        return redirect()->route('login');
     }
 }
