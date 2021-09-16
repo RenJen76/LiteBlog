@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Http\Response;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserProfileRequest extends FormRequest
@@ -14,6 +15,17 @@ class UserProfileRequest extends FormRequest
     public function authorize()
     {
         return true;
+    }
+
+    /**
+     * Get the response for a forbidden operation.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+
+    public function forbiddenResponse()
+    {
+        return response(view('errors.403'), 403);
     }
 
     /**

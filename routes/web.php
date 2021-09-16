@@ -21,7 +21,7 @@ route::post('/writeComment/{article_id}', 'ArticleController@writeCommentProcess
  * 使用者功能
 */
 route::group(['prefix' => 'user'], function(){
-    route::get('index', 'UserController@userIndex');
+    route::get('index', 'UserController@userIndex')->name('home');
     route::get('editUser', 'UserController@showUserInfo');
     route::post('editUser', 'UserController@editUserInfo');
     route::get('previewMailNotification', 'UserController@previewMailNotification');

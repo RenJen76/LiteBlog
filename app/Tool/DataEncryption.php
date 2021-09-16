@@ -7,7 +7,7 @@ class DataEncryption
 
     public static function Encrypt($str = "")
     {
-        $data = openssl_encrypt($str, 'AES-256-CBC', env('AES_KEY'), OPENSSL_RAW_DATA,env('AES_IV'));
+        $data = openssl_encrypt($str, 'AES-256-CBC', config('app.AESKey'), OPENSSL_RAW_DATA, config('app.AESIV'));
         return base64_encode($data);      
     } 
 

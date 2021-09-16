@@ -19,8 +19,8 @@
 
         public function __construct()
         {
-            $httpClient       = new CurlHTTPClient(env('LINE_CHANNEL_ACCESS_TOKEN'));
-            $this->bot        = new LINEBot($httpClient, ['channelSecret' => env('LINE_CHANNEL_SECRET')]);
+            $httpClient       = new CurlHTTPClient(config('app.LINEAccessToken'));
+            $this->bot        = new LINEBot($httpClient, ['channelSecret' => config('app.LINEChannelSecret')]);
             $this->httpClient = $httpClient;
         }
 

@@ -12,7 +12,7 @@ use App\Http\Requests\UserProfileRequest;
 class UserController extends Controller
 {
 
-    function __construct()
+    public function __construct()
     {
         $this->middleware('user.auth')->except(
             'verifyUser', 'showUserProfile'

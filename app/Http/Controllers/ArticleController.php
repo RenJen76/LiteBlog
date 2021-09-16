@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('user.auth')->except(
+            'searchContent', 'index'
+        );
+    }
+
     public function index()
     {
         $ArticleData = article::where('article_status', '0')->with('Author', 'commits.commit_user')->orderby('article_id', 'DESC')->get();

@@ -17,6 +17,7 @@ class AuthController extends Controller
 
     function __construct()
     {
+        $this->middleware('guest')->except('signOutProcess');
         DB::enableQueryLog();
     }
 
@@ -29,7 +30,6 @@ class AuthController extends Controller
 
     public function loginPage()
     {
-        session()->forget('UserID');
         return view('register.login', [
             'Title' => '登入頁面'
         ]);
@@ -74,7 +74,6 @@ class AuthController extends Controller
         }
 
         Auth::login($account);
-        // session()->put('UserID', $account->id);
         return redirect()->intended('/user/index');
     }
 
