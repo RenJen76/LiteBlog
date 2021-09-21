@@ -99,7 +99,7 @@ class ArticleController extends Controller
     public function showMyArticles()
     {
         $ArticleList = article::where('user_id', Auth::id())->with('Author')->get();
-        return view('user/myArticles', [
+        return view('user.myArticles', [
             'Title'         => '我的文章列表',
             'ArticleList'   => $ArticleList
         ]);

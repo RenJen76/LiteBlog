@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3f4046e92923979d46b311f611b1c21",
+    "content-hash": "54583d78b984eeffd4a8563bfb3e7835",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -3713,34 +3713,34 @@
         },
         {
             "name": "recca0120/laravel-tracy",
-            "version": "v1.13.1",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/recca0120/laravel-tracy.git",
-                "reference": "cb65ef6f5db70ef9c3cc1601fd110ce589d79cd4"
+                "reference": "950965270efa631e8616531fa67e97e15346251f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/recca0120/laravel-tracy/zipball/cb65ef6f5db70ef9c3cc1601fd110ce589d79cd4",
-                "reference": "cb65ef6f5db70ef9c3cc1601fd110ce589d79cd4",
+                "url": "https://api.github.com/repos/recca0120/laravel-tracy/zipball/950965270efa631e8616531fa67e97e15346251f",
+                "reference": "950965270efa631e8616531fa67e97e15346251f",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "^5.1|^6.0|^7.0|^8.0",
-                "illuminate/database": "^5.1|^6.0|^7.0|^8.0",
-                "illuminate/routing": "^5.1|^6.0|^7.0|^8.0",
-                "illuminate/session": "^5.1|^6.0|^7.0|^8.0",
-                "illuminate/support": "^5.1|^6.0|^7.0|^8.0",
-                "illuminate/view": "^5.1|^6.0|^7.0|^8.0",
+                "illuminate/contracts": "^5.1|^6.0",
+                "illuminate/database": "^5.1|^6.0",
+                "illuminate/routing": "^5.1|^6.0",
+                "illuminate/session": "^5.1|^6.0",
+                "illuminate/support": "^5.1|^6.0",
+                "illuminate/view": "^5.1|^6.0",
                 "php": ">=5.5.9",
-                "recca0120/terminal": "^1.8",
-                "tracy/tracy": "^2.4|^2.5|^2.6|^2.7|^3.0"
+                "recca0120/terminal": "^1.0",
+                "tracy/tracy": "^2.4|^2.5|^2.6"
             },
             "require-dev": {
                 "mockery/mockery": "^0.9.4|^1.0",
                 "nesbot/carbon": "^1.20|^2.0",
-                "phpunit/phpunit": "^4.8|^5.4|^6.1|^7.0|^8.0|^9.0",
-                "vlucas/phpdotenv": "^4.1|^5.0"
+                "phpunit/phpunit": "^4.8|^5.4|^6.1|^7.0|^8.0",
+                "vlucas/phpdotenv": "^3.3"
             },
             "type": "library",
             "extra": {
@@ -3782,9 +3782,9 @@
             ],
             "support": {
                 "issues": "https://github.com/recca0120/laravel-tracy/issues",
-                "source": "https://github.com/recca0120/laravel-tracy/tree/v1.13.1"
+                "source": "https://github.com/recca0120/laravel-tracy/tree/1.10.0"
             },
-            "time": "2021-02-25T15:04:58+00:00"
+            "time": "2019-12-02T14:32:42+00:00"
         },
         {
             "name": "recca0120/terminal",
@@ -4777,5 +4777,5 @@
         "php": ">=5.6.4"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }

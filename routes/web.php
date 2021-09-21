@@ -29,7 +29,8 @@ route::group(['prefix' => 'user'], function(){
     route::get('create-articles', 'ArticleController@addArticlesPage');
     route::post('create-articles', 'ArticleController@addArticlesProcess');
     route::get('edit-article/{article_id}', 'ArticleController@editArticlesPage');
-    route::post('edit-article/{article_id}', 'ArticleController@editArticlesProcess');
+    route::post('edit-article/{article_id}', 'ArticleController@editArticlesProcess'); 
+    route::get('{user_id}', 'UserController@showUserProfile');
 });
 
 /**
@@ -46,11 +47,4 @@ route::group(['prefix' => 'auth'], function(){
     route::post('logout', 'AuthController@signOutProcess');
     route::post('login-process', 'AuthController@loginProcess');
     route::post('register', 'AuthController@signUpProcess');
-});
-
-/**
- * 使用者頁面
-*/
-route::group(['prefix' => 'user'], function(){
-    route::get('{user_id}', 'UserController@showUserProfile');
 });

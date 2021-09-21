@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'enabled' => env('APP_DEBUG') === true,
+    // 'enabled' => env('APP_DEBUG') === true,
+    'enabled' => false,
     'showBar' => env('APP_ENV') !== 'production',
     'showException' => true,
     'route' => [

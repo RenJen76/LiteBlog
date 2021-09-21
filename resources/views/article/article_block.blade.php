@@ -6,7 +6,11 @@
         <!-- onclick="javascript: location.href='edit-article/{{ $ArticleData->article_id }}'" -->
         <div class="row">
             <div class="col-2">
-                <img src="{{URL::asset($ArticleData->Author->user_picture)}}" class="w-100 img-thumbnail">
+            @if(!$ArticleData->Author->user_picture)
+                <img src="/images/icon/default.png" class="w-100 img-thumbnail">
+            @else
+                <img src="{{ URL::asset($ArticleData->Author->user_picture) }}" class="w-100 img-thumbnail">
+            @endif
             </div>
             <div class="col-10 article-title">
                 <div class="row">
