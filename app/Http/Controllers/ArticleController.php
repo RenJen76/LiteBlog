@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Log;
-use Validator;
 use App\Commit as commit;
 use App\Article as article;
 use App\Events\CommentReminderEvent;
-use App\Mohist\MohistEncryption;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
+use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
@@ -31,9 +27,9 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function writeCommentProcess(request $request, $articleId)
+    public function writeCommentProcess($articleId)
     {        
-        $commentContent = $request->input('commentContent');
+        $commentContent = request()->input('commentContent');
         if(!$commentContent){
             return response()->json([
                 'responseMessage' => '內容不得為空'
@@ -69,30 +65,14 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function addArticlesProcess()
+    public function addArticlesProcess(ArticleRequest $request)
     {
-        $Input      = Request()->All();
-        $Validator  = Validator::make($Input, array(
-            'contentTitle' => array(
-                'required', 'max:50'
-            ),
-            'content' => array(
-                'required'
-            )
-        ));
-
-        if($Validator->Fails()){
-            return redirect('user/create-articles')->WithErrors($Validator)->WithInput();
-        }
-
-        $ArticleData = [
+        $Input       = $request->all();
+        article::create([
             'user_id'           => Auth::id(),
             'article_title'     => $Input['contentTitle'],
             'article_content'   => $Input['content']
-        ];
-        
-
-        article::create($ArticleData);
+        ]);
         return redirect('/user/create-articles')->with('ProcessResult', 'success');
     }
 
@@ -123,7 +103,6 @@ class ArticleController extends Controller
         ])->FirstOrFail();
 
         return view('user/editArticles', [
-            'Title'         => '修改文章',
             'ArticleData'   => [
                 'ArticleTitle'      => $ArticleData->article_title,
                 'ArticleContent'    => $ArticleData->article_content
@@ -131,32 +110,19 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function editArticlesProcess($ArticleID)
+    public function editArticlesProcess(ArticleRequest $request, $articleId)
     {
-        $Input      = Request()->All();
-        $Validator  = Validator::make($Input, array(
-            'contentTitle' => array(
-                'required', 'max:50'
-            ),
-            'content' => array(
-                'required'
-            )
-        ));
-
-        if($Validator->Fails()){
-            return redirect('user/create-articles')->WithErrors($Validator)->WithInput();
-        }
-
+        $Input = $request->all();
         article::where([
             'user_id'           =>  Auth::id(),
-            'article_id'        =>  $ArticleID,
+            'article_id'        =>  $articleId,
         ])->update([
             'updated_at'        => date('Y-m-d H:i:s'),
             'article_title'     => $Input['contentTitle'],
             'article_content'   => $Input['content']
         ]);
 
-        return redirect('user/edit-article/' . $ArticleID)
+        return redirect('user/edit-article/'.$articleId)
                 ->with('ProcessResult', 'success');
     }
 }
