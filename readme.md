@@ -14,4 +14,4 @@
 
 4. fill in `MAIL_USERNAME` and `MAIL_PASSWORD` use to send mail
 
-5. run `php artisan queue:table` and `php artisan migrate`
+5. run `php artisan migrate`

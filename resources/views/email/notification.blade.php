@@ -6,8 +6,9 @@
 
 <div class="container"> 
     <div class="d-flex flex-column mx-auto border border-danger w-50 mt-5 p-2">
-        <p>歡迎註冊 Communtity </p>
-        <span>您好: <strong>{{ $nickName }}</strong></span>
+        <p>歡迎註冊 LiteBlog </p>
+        <span>您好: {{ $nickName }}</span>
+        <br>
         <span>請點選以下URL啟動帳號:  
             <small>
                 <a href="{{ $verifyUrl }}">{{ $verifyUrl }}</a>

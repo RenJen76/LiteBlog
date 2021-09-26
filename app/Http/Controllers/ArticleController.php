@@ -22,7 +22,6 @@ class ArticleController extends Controller
         $ArticleData = article::where('article_status', '0')->with('Author', 'commits.commit_user')->orderby('article_id', 'DESC')->get();
 
         return view('article.index', [
-            'Title'         => '所有文章',
             'ArticleList'   => $ArticleData
         ]);
     }
@@ -80,7 +79,6 @@ class ArticleController extends Controller
     {
         $ArticleList = article::where('user_id', Auth::id())->with('Author')->get();
         return view('user.myArticles', [
-            'Title'         => '我的文章列表',
             'ArticleList'   => $ArticleList
         ]);
     }

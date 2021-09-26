@@ -64,7 +64,11 @@
             <div class="card card-body">
                 <div class="row">
                     <div class="col-2">
-                        <img src="{{URL::asset($Commit->commit_user->user_picture)}}" class="w-100 img-thumbnail">
+                    @if(!$Commit->commit_user->user_picture)
+                        <img src="/images/icon/default.png" class="w-100 img-thumbnail">
+                    @else
+                        <img src="{{ URL::asset($Commit->commit_user->user_picture) }}" class="w-100 img-thumbnail">
+                    @endif
                     </div>
                     <div class="col-10">
                         <strong>
@@ -126,7 +130,7 @@
 
         function generateCommentFields(comment = '')
         {
-            let selfAvator    = '{{ Auth::user() ? Auth::user()->user_picture : "" }}';
+            let selfAvator    = '{{ Auth::user() ? Auth::user()->user_picture : "/images/icon/default.png" }}';
             let userName      = '{{ Auth::user() ? Auth::user()->nickname : "" }}';
             let currentTime   = new Date();
             let currentHour   = currentTime.getHours();

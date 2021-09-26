@@ -1,7 +1,7 @@
 @extends('master.master')
 
 
-@section('Title', $Title)
+@section('Title', '我的文章列表')
 
 
 @section('Content')
