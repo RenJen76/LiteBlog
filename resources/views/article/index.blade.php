@@ -8,7 +8,7 @@
 
 <div class="col pb-5">
 
-    <h1>{{ $Title }}</h1>
+    <h1>所有文章</h1>
 
     @include('article.article_block')  
 

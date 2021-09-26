@@ -7,7 +7,7 @@
 @section('Content')
 
 <div class="col pb-5">
-    <h1>{{ $Title }}</h1>
+    <h1>我的文章列表</h1>
     
     <input type="button" class="btn btn-primary" value="建立文章" onclick="javascript:location.href = '/user/create-articles'">
     
